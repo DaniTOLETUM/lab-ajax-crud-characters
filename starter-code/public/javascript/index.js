@@ -21,6 +21,14 @@ $(document).ready(() => {
   document.getElementById('fetch-one').onclick = function () {
     event.preventDefault();
     console.log('fetch-one');
+    const theId = document.getElementById("searchID").value;
+    axios.get(`http://localhost:8000/characters/${theId}`)
+      .then(response => {
+        console.log('Response from the API is: ', response);
+      })
+      .catch(error => {
+        console.log("The error is: ", error);
+      });
   }
 
   document.getElementById('delete-one').onclick = function () {
