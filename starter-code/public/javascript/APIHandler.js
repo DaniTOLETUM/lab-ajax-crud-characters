@@ -27,8 +27,15 @@ class APIHandler {
 
   }
 
-  createOneRegister() {
+  createOneRegister(characterInfo) {
+    axios.post(this.BASE_URL + "/characters", characterInfo)
+      .then(response => {
+        console.log("You just created this character: ", response.data);
 
+      })
+      .catch(error => {
+        console.log("Error is: ", error);
+      })
   }
 
   updateOneRegister() {

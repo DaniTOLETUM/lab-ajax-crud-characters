@@ -63,13 +63,6 @@ $(document).ready(() => {
       weapon: theWeapon[0].value
     };
 
-    axios.post('http://localhost:8000/characters', characterInfo)
-      .then(response => {
-        console.log("You just created this character: ", response.data);
-
-      })
-      .catch(error => {
-        console.log("Error is: ", error);
-      })
+    charactersAPI.createOneRegister(characterInfo);
   }
 })

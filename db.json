@@ -41,6 +41,13 @@
       "cartoon": "on",
       "weapon": "gun",
       "id": 7
+    },
+    {
+      "name": "Cruela",
+      "occupation": "Villana",
+      "cartoon": "on",
+      "weapon": "fusil",
+      "id": 8
     }
   ]
 }
