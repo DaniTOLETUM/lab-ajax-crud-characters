@@ -22,7 +22,11 @@
       "cartoon": true
     },
     {
-      "id": 4
+      "id": 4,
+      "name": "Miguel",
+      "occupation": "Developper",
+      "cartoon": "on",
+      "weapon": "computer"
     },
     {
       "id": 5

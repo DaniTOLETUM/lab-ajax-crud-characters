@@ -24,29 +24,30 @@ $(document).ready(() => {
   document.getElementById('edit-character-form').onsubmit = function () {
     event.preventDefault();
     console.log('edit-character-form');
-    const modifyID = document.getElementById("modifyID");
+    const modifyID = document.getElementById("modifyID").value;
     const theNewName = document.getElementsByClassName("newName");
     const theNewOccupation = document.getElementsByClassName("newOccupation");
     const theNewCartoon = document.getElementsByClassName("newCartoon");
     const theNewWeapon = document.getElementsByClassName("newWeapon");
 
-    axios.get(`http://localhost:8000/characters/${modifyID}`)
+
+    const updatedcharacterInfo = {
+      name: theNewName[0].value,
+      occupation: theNewOccupation[0].value,
+      cartoon: theNewCartoon[0].value,
+      weapon: theNewWeapon[0].value
+    };
+
+    axios.patch(`http://localhost:8000/characters/${modifyID}`, updatedcharacterInfo)
       .then(response => {
-        // console.log('Response from the API is: ', response.data);
-
-        // theNames is the array of all nodes that the class name 'the-name'
-        // const theNames = document.getElementsByClassName("the-name");
-
-        theNewName[1].value = response.data.name;
-        theNewOccupation[1].value = response.data.occupation;
-        theNewWeapon[1].value = response.data.weapon;
-        theNewCartoon[1].value = response.data.weapon;
-
+        console.log('update successful: ', response);
+        // document.getElementById("update-form").reset();
       })
       .catch(error => {
-        console.log("The error is: ", error);
-      });
+        console.log(error);
+      })
   }
+
 
   document.getElementById('new-character-form').onsubmit = function () {
     event.preventDefault();
