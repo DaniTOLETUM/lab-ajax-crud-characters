@@ -38,8 +38,15 @@ class APIHandler {
       })
   }
 
-  updateOneRegister() {
-
+  updateOneRegister(modifyID, updatedcharacterInfo) {
+    axios.patch(`http://localhost:8000/characters/${modifyID}`, updatedcharacterInfo)
+      .then(response => {
+        console.log('update successful: ', response);
+        // document.getElementById("update-form").reset();
+      })
+      .catch(error => {
+        console.log(error);
+      })
   }
 
   deleteOneRegister() {

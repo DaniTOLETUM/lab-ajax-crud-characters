@@ -19,6 +19,13 @@ $(document).ready(() => {
     event.preventDefault();
     console.log('delete-one');
     const deleteID = document.getElementById("deleteID").value;
+    axios.delete("http://localhost:8000/characters" + `/${deleteID}`)
+      .then(response => {
+        console.log('Response from the API is: ', response);
+      })
+      .catch(error => {
+        console.log("The error is: ", error);
+      });
   }
 
   document.getElementById('edit-character-form').onsubmit = function () {
@@ -38,14 +45,7 @@ $(document).ready(() => {
       weapon: theNewWeapon[0].value
     };
 
-    axios.patch(`http://localhost:8000/characters/${modifyID}`, updatedcharacterInfo)
-      .then(response => {
-        console.log('update successful: ', response);
-        // document.getElementById("update-form").reset();
-      })
-      .catch(error => {
-        console.log(error);
-      })
+    charactersAPI.updateOneRegister(modifyID, updatedcharacterInfo);
   }
 
 
