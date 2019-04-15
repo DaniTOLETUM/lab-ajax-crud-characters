@@ -9,6 +9,13 @@ $(document).ready(() => {
   document.getElementById('fetch-all').onclick = function () {
     event.preventDefault();
     console.log('fetch-all');
+    axios.get('http://localhost:8000/characters')
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => {
+        console.log("Error is: ", error);
+      })
   }
 
   document.getElementById('fetch-one').onclick = function () {
