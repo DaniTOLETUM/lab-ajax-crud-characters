@@ -30,6 +30,13 @@
     {
       "name": "Gru",
       "id": 6
+    },
+    {
+      "name": "Daniel",
+      "occupation": "Villano",
+      "cartoon": "on",
+      "weapon": "gun",
+      "id": 7
     }
   ]
 }
