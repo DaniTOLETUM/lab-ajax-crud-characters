@@ -19,13 +19,7 @@ $(document).ready(() => {
     event.preventDefault();
     console.log('delete-one');
     const deleteID = document.getElementById("deleteID").value;
-    axios.delete("http://localhost:8000/characters" + `/${deleteID}`)
-      .then(response => {
-        console.log('Response from the API is: ', response);
-      })
-      .catch(error => {
-        console.log("The error is: ", error);
-      });
+    charactersAPI.deleteOneRegister(deleteID);
   }
 
   document.getElementById('edit-character-form').onsubmit = function () {
@@ -56,6 +50,7 @@ $(document).ready(() => {
     const theOccupation = document.getElementsByClassName("the-occupation");
     const theCartoon = document.getElementsByClassName("the-cartoon");
     const theWeapon = document.getElementsByClassName("the-weapon");
+
     const characterInfo = {
       name: theName[0].value,
       occupation: theOccupation[0].value,
